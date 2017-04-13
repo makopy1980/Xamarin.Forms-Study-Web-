@@ -4,8 +4,13 @@
 			 xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
 			 prism:ViewModelLocator.AutowireViewModel="True" 
 			 x:Class="XFWebSample.Views.MainPage" 
-			 Title="MainPage">
-	<StackLayout HorizontalOptions="Center" VerticalOptions="Center">
-		<Button Text="外部ブラウザで開く" Command="{Binding ExternalBrowserCommand}" />
+			 NavigationPage.BackButtonTitle="戻る"
+			 Title="メインページ">
+	<StackLayout HorizontalOptions="Center" 
+				 VerticalOptions="Center">
+		<Button Text="Webブラウザで開く" 
+				Command="{Binding ExternalBrowserCommand}" />
+		<Button Text="WebView遷移サンプル1" 
+				Command="{Binding WebViewNavigationSample1Command}" />
 	</StackLayout>
 </ContentPage>

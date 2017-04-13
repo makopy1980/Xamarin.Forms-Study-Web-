@@ -1,5 +1,6 @@
 ﻿using Prism.Unity;
 using XFWebSample.Views;
+using Xamarin.Forms;
 
 namespace XFWebSample
 {
@@ -11,12 +12,14 @@ namespace XFWebSample
         {
             InitializeComponent();
 
-            NavigationService.NavigateAsync("MainPage?title=Hello%20from%20Xamarin.Forms");
+            NavigationService.NavigateAsync("NavigationPage/MainPage");
         }
 
         protected override void RegisterTypes()
         {
+            Container.RegisterTypeForNavigation<NavigationPage>();
             Container.RegisterTypeForNavigation<MainPage>();
+            Container.RegisterTypeForNavigation<WebNavSamplePage1>();
         }
     }
 }
