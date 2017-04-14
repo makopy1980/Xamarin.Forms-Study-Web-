@@ -1,6 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
-using XFWebSample.DependencyServices;
+using ProgressHud;
 
 namespace XFWebSample.Views
 {
@@ -17,8 +17,6 @@ namespace XFWebSample.Views
         /// <summary>
         /// Backボタンタップ時処理
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
         private void OnWebBackButtonTapped(object sender, EventArgs e)
         {
             if (this.WebView.CanGoBack)
@@ -31,8 +29,6 @@ namespace XFWebSample.Views
         /// <summary>
         /// Forwardボタンタップ時処理
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
         private void OnWebForwardButtonTapped(object sender, EventArgs e)
         {
             if (this.WebView.CanGoForward)
@@ -45,8 +41,6 @@ namespace XFWebSample.Views
         /// <summary>
         /// WebView遷移中処理
         /// </summary>
-        /// <param name="sender">Sender.</param>
-        /// <param name="e">E.</param>
         private void webviewOnNavigating(object sender, WebNavigatingEventArgs e)
         {
             // HUDを表示する

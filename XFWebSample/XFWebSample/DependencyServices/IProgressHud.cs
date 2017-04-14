@@ -1,9 +1,7 @@
-﻿using System;
-
-namespace XFWebSample.DependencyServices
+﻿namespace ProgressHud
 {
     /// <summary>
-    /// ProgressHud操作クラス
+    /// ProgressHUD操作インタフェース
     /// </summary>
     public interface IProgressHud
     {

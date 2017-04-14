@@ -1,15 +1,13 @@
-﻿using System;
-using BigTed;
+﻿using BigTed;
 using Xamarin.Forms;
-using XFWebSample.DependencyServices;
-using XFWebSample.iOS.DependencyServices;
+using ProgressHud;
 
 [assembly: Dependency(typeof(ProgressHud_iOS))]
 
-namespace XFWebSample.iOS.DependencyServices
+namespace ProgressHud
 {
     /// <summary>
-    /// ProgressHud操作クラス
+    /// ProgressHUD操作クラス
     /// </summary>
     public class ProgressHud_iOS : IProgressHud
     {

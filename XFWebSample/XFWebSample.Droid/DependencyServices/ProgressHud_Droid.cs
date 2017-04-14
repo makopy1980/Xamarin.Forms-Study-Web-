@@ -1,15 +1,13 @@
-﻿using System;
-using AndroidHUD;
+﻿using AndroidHUD;
+using ProgressHud;
 using Xamarin.Forms;
-using XFWebSample.DependencyServices;
-using XFWebSample.Droid.DependencyServices;
 
 [assembly: Dependency(typeof(ProgressHud_Droid))]
 
-namespace XFWebSample.Droid.DependencyServices
+namespace ProgressHud
 {
     /// <summary>
-    /// ProgressHud操作クラス
+    /// ProgressHUD操作クラス
     /// </summary>
     public class ProgressHud_Droid : IProgressHud
     {
