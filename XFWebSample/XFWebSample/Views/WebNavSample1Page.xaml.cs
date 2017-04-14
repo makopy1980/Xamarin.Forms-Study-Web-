@@ -1,5 +1,6 @@
 ﻿using System;
 using Xamarin.Forms;
+using XFWebSample.DependencyServices;
 
 namespace XFWebSample.Views
 {
@@ -46,23 +47,43 @@ namespace XFWebSample.Views
         /// </summary>
         /// <param name="sender">Sender.</param>
         /// <param name="e">E.</param>
-        void webviewOnNavigating(object sender, WebNavigatingEventArgs e)
+        private void webviewOnNavigating(object sender, WebNavigatingEventArgs e)
         {
-            // Backボタン無効化
-            this.WebBackButton.IsEnabled = false;
-            // Forwardボタン無効化
-            this.WebForwardButton.IsEnabled = false;
+            // HUDを表示する
+            DependencyService.Get<IProgressHud>().Show("Loading...");
+
+            // ボタン無効
+            this.DisableWebButtons();
         }
 
         /// <summary>
         /// WebView遷移完了時処理
         /// </summary>
-        void webviewOnNavigated(object sender, WebNavigatedEventArgs e)
+        private void webviewOnNavigated(object sender, WebNavigatedEventArgs e)
         {
-            var webView = sender as WebView;
+            // ボタンの有効/無効を設定
+            this.SetWebButtonsEnable();
 
-            this.WebBackButton.IsEnabled = webView.CanGoBack;
-            this.WebForwardButton.IsEnabled = webView.CanGoForward;
+            // HUDを非表示にする
+            DependencyService.Get<IProgressHud>().Dismiss();
+        }
+
+        /// <summary>
+        /// ボタンの有効/無効を設定する
+        /// </summary>
+        private void SetWebButtonsEnable()
+        {
+            this.WebBackButton.IsEnabled = this.WebView.CanGoBack;
+            this.WebForwardButton.IsEnabled = this.WebView.CanGoForward;
+        }
+
+        /// <summary>
+        /// ボタンを無効にする
+        /// </summary>
+        private void DisableWebButtons()
+        {
+            this.WebBackButton.IsEnabled = false;
+            this.WebForwardButton.IsEnabled = false;
         }
     }
 }
